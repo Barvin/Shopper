@@ -1,0 +1,47 @@
+# Specific files #
+##################
+db.sqllite3
+settings.py
+*.komodoproject
+
+# Komodo #
+##########
+pkg/*
+*.gem
+.bundle
+
+# File types #
+##############
+*.pyc
+*.swo
+*.swp
+*.swn
+
+# Directories #
+###############
+logs/
+eCommerce/static/media/product_images
+
+# OS generated files #
+######################
+.DS_Store
+ehthumbs.db
+Icon
+Thumbs.db
+*~
+
+# GitHub #
+##########
+*.egg-info
+*.pot
+*.py[co]
+__pycache__
+MANIFEST
+dist/
+docs/_build/
+docs/locale/
+node_modules/
+tests/coverage_html/
+tests/.coverage
+build/
+tests/report/
