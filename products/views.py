@@ -14,3 +14,6 @@ def product_single(request, slug):
     product = Products.objects.get(slug=slug)
     
     return render_to_response("product.html", locals(), context_instance=RequestContext(request))
+
+def home(request):
+    return render_to_response("home.html", locals(), context_instance=RequestContext(request))
