@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{%block content%}
+
+<ul>
+{% for item in results %}
+    <li><a href='{% if item.slug %} {{item.slug}} {% endif %}' >{{ item }}</a> </li>
+    {% if item.description %}
+    {{item.description}}
+    {% endif %}
+    
+    {% if item.image %}
+    <img src='/media/{{item.image}}'>
+    {% endif %}
+    
+{% endfor %}
+</ul>
+
+
+{%endblock%}
