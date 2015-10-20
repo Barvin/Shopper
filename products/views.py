@@ -11,6 +11,6 @@ def product_page(request):
     return render_to_response("results.html", locals(), context_instance=RequestContext(request))
 
 def product_single(request, slug):    
-    results = Products.objects.filter(slug=slug)
+    product = Products.objects.get(slug=slug)
     
     return render_to_response("product.html", locals(), context_instance=RequestContext(request))
