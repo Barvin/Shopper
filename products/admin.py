@@ -10,3 +10,4 @@ class ProductsAdmin(admin.ModelAdmin):
         model = Products
 
 admin.site.register(Products, ProductsAdmin)
+
