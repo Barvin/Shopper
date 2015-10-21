@@ -13,5 +13,5 @@ class Products(models.Model):
     
     # defines the ordering of the class' data should be in reverse
     class Meta:
-        ordering = ['-name']
+        ordering = ['name']
     
