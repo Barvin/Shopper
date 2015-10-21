@@ -4,6 +4,10 @@ db.sqllite3
 settings.py
 *.komodoproject
 
+# PyCharm #
+##########
+.idea/
+
 # Komodo #
 ##########
 pkg/*

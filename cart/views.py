@@ -12,25 +12,29 @@ def add(request, slug):
 
     # start a cart if none (i.e. doesn't have a cart id)
     try:
-        active = request.session['cart']
-    except:
-    # initialize new cart to 'Empty'
-        request.session['cart'] = 'Empty'
-
-    if request.session['cart'] is not "Empty":
         cart = request.session['cart']
         # match Cart id with session
         update_cart = Cart.objects.get(id=cart)
         update_cart.products.add(product)
         update_cart.save()
         request.session['total_items'] = len(update_cart.products.all())
-    else:
+    except KeyError:
+        # initialize new cart to 'Empty'
+        request.session['cart'] = 'Empty'
         # add product to empty cart
-        cart = Cart()
-        cart.save()
-        cart.products.add(product)
+        new_cart = Cart()
+        new_cart.save()
+        new_cart.products.add(product)
         # change 'empty' session to cart id
-        request.session['cart'] = cart.id
-        request.session['total_items'] = len(cart.products.all())
+        request.session['cart'] = new_cart.id
+        request.session['total_items'] = len(new_cart.products.all())
 
     return HttpResponseRedirect('/products/' + slug)
+
+def view(request):
+    try:
+        cartID = request.session['cart']
+        cart_loopkup = Cart.objects.get(id=cartID)
+    except KeyError:
+        cart_loopkup = False
+    return render_to_response('cart/cart.html', locals(), context_instance=RequestContext(request))
