@@ -11,7 +11,9 @@ urlpatterns = patterns('',
     (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': os.path.join(os.path.dirname(__file__), 'static/media')}),
     (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': os.path.join(os.path.dirname(__file__), 'static')}),
 
-    url(r'^$', 'home.views.homePage'),    
+    url(r'^$', 'home.views.homePage'),
+    (r'^pages/', include('django.contrib.flatpages.urls')),
+    
     url(r'^products/$', 'products.views.products'),
     url(r'^products/(?P<slug>[-\w]+)/$', 'products.views.product_single'),
     url(r'^contact/$', 'contact.views.contactForm'),

@@ -2,7 +2,7 @@ from datetime import date
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
 from django.shortcuts import render_to_response
-from .form import ContactForm
+from .forms import ContactForm
 
 
 # Create your views here.
