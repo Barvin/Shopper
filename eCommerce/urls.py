@@ -12,12 +12,15 @@ urlpatterns = patterns('',
     (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': os.path.join(os.path.dirname(__file__), 'static')}),
 
     url(r'^$', 'home.views.homePage'),
-    (r'^pages/', include('django.contrib.flatpages.urls')),
+    (r'^about/', 'home.views.aboutPage'),
     
     url(r'^products/$', 'products.views.products'),
     url(r'^products/(?P<slug>[-\w]+)/$', 'products.views.product_single'),
     url(r'^products/(?P<slug>[-\w]+)/add$', 'cart.views.add'),
     url(r'^contact/$', 'contact.views.contactForm'),
+    url(r'^cart/$', 'cart.views.view'),
+    url(r'^cart/delete$', 'cart.views.delete'),
+
     
     
 )

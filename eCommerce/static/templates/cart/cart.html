@@ -1,0 +1,30 @@
+{%  extends "base.html" %}
+
+{% block content %}
+
+
+    {% if cart.active %}
+    <table class="table">
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Description</th>
+        </tr>
+    {%  for item in cart.products.all %}
+        <tbody>
+            <tr>
+                <td>{{ item.name }}</td>
+                <td>{{ item.description }}</td>
+            </tr>
+        </tbody>
+    {%  endfor %}
+    </table>
+
+    <br>
+    <a href="delete" class="btn btn-danger" role="button">Empty Cart</a>
+
+    {% else %}
+        {{ poi }}
+    {% endif %}
+{% endblock %}
+
