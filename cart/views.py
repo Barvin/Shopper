@@ -4,6 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 
 from .models import Cart
 from products.models import Products
+import pdb
 # Create your views here.
 
 def add(request, slug):
@@ -56,14 +57,13 @@ def delete(request):
     try:
         cartID = request.session['cart']
         cart = Cart.objects.get(id=cartID)
+        cart.active = False
+        cart.save()
+        request.session['total_items'] = 0
+        print "test"
+        print int(request.session['total_items'])
+        print cart.products.remove
     except:
         cart = False
-    if cart:
-        deleteCart = Cart.objects.get(id=cartID)
-        deleteCart.active = False
-        deleteCart.save()
-        request.session['total_items'] = 0
-
-
 
     return HttpResponseRedirect('/cart/')
