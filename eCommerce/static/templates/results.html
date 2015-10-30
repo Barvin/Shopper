@@ -6,19 +6,28 @@
 
 {%block content%}
 
-<ul>
-{% for item in results %}
-    <li><a href='{% if item.slug %} {{item.slug}} {% endif %}' >{{ item }}</a> </li>
-    {% if item.description %}
-    {{item.description}}
-    {% endif %}
-    
-    {% if item.image %}
-    <img src='/media/{{item.image}}'>
-    {% endif %}
-    
-{% endfor %}
-</ul>
+<table class="table">
+<tbody>
+    <ul class="list-group">
+    {% for item in results %}
+        <li class="list-group-item">
+            <a href='{% if item.slug %} {{item.slug}} {% endif %}' >
+                <h3>{{ item }}</h3>
+            </a>
+
+
+        {% if item.image %}
+            <img src='/media/{{item.image}}' class="img-rounded">
+        {% endif %}
+
+        {% if item.description %}
+            <p>{{item.description}}</p>
+        {% endif %}
+        </li>
+    {% endfor %}
+    </ul>
+</tbody>
+</table>
 
 
 {%endblock%}

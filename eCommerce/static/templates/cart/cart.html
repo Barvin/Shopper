@@ -11,12 +11,12 @@
             <th>Description</th>
         </tr>
     {%  for item in cart.products.all %}
-        <tbody>
-            <tr>
-                <td>{{ item.name }}</td>
-                <td>{{ item.description }}</td>
-            </tr>
-        </tbody>
+    <tbody>
+        <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.description }}</td>
+        </tr>
+    </tbody>
     {%  endfor %}
     </table>
 

@@ -4,12 +4,26 @@
 
 {% endblock %}
 
-
 {% block content %}
-<h1>{{ product }}</h1>
-<div>
-    <img src='/media/{{ product.image }}'>
-</div>
-<h3>{{ product.description }}</h3>
-    <a href="add" class="btn btn-success" role="button">Add to Cart</a>
+    <table class="table">
+        <thead>
+            <h2>{{ product }}</h2>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                {% if product.image %}
+
+                 <img src='/media/{{ product.image }}' class="img-responsive">
+                {% endif %}
+                {{ product.description }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="add" class="btn btn-success" role="button">Add to Cart</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 {% endblock %}

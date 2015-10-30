@@ -11,7 +11,7 @@ def add(request, slug):
     product = Products.objects.get(slug=slug)
 
     # session expiration(seconds = 24h)
-    request.session.set_expiry(30)
+    request.session.set_expiry(90000)
 
     # start a cart if none (i.e. doesn't have a cart id)
     try:
@@ -60,9 +60,9 @@ def delete(request):
         cart.active = False
         cart.save()
         request.session['total_items'] = 0
-        print "test"
-        print int(request.session['total_items'])
-        print cart.products.remove
+
+        # destroy session
+        request.session.flush()
     except:
         cart = False
 
