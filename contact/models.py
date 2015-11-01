@@ -15,4 +15,5 @@ class Contact(models.Model):
     # most recent first
     class Meta:
         ordering = ['-timestamp']
+        verbose_name = 'Contact'
     

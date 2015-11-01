@@ -11,6 +11,7 @@
         </thead>
         <tbody>
         <tr>
+
             <td>
                 {% if product.image %}
 
@@ -21,6 +22,15 @@
         </tr>
         <tr>
             <td>
+                <p>
+                    SKU: {{ product.sku }}
+                </p>
+                <p>
+                    {{ product.inventory }} left!
+                </p>
+            </td>
+            <td>
+                {{ product.price }}kr
                 <a href="add" class="btn btn-success" role="button">Add to Cart</a>
             </td>
         </tr>
